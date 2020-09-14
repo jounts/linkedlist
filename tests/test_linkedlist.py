@@ -85,12 +85,13 @@ class TestLinkedList(unittest.TestCase):
 
     def test_negative_index(self):
         for i in range(3):
-            if i = 1:
+            if i == 1:
                 continue
             self.l.append(i)
         self.l.insert(-2, 1)
+        print(self.l)
         self.assertEqual(self.l._LinkedList__head.value, 0)
-        self.assertEqual(self.l._LinkedList__tail.value, 3)
+        self.assertEqual(self.l._LinkedList__tail.value, 2)
 
     def test_clear(self):
         pass  # Узнать как протестировать это

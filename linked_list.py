@@ -114,7 +114,7 @@ class LinkedList:
                 return index
 
     def delete(self, index: int):
-        if index is not isinstance(index, int):
+        if not isinstance(index, int):
             raise TypeError('index must be int')
         if index < 0:
             if self.__len >= abs(index):
