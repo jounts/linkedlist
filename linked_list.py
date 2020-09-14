@@ -46,7 +46,7 @@ class LinkedList:
     def __len__(self):
         return self.__len
 
-    def insert(self, index, value):
+    def insert(self, index: int, value: Any):
         if not isinstance(index, int):
             raise TypeError('index must be int')
         if index < 0:
@@ -80,7 +80,7 @@ class LinkedList:
             self.__tail = insert_node
             self.__len += 1
 
-    def append(self, value):
+    def append(self, value: Any):
         append_node = Node(value)
         if self.__head is None:
             self.__head = append_node
@@ -91,7 +91,7 @@ class LinkedList:
             self.__tail = append_node
         self.__len += 1
 
-    def push(self, value):
+    def push(self, value: Any):
         pushed_node = Node(value)
         if self.__head is None:
             self.__head = pushed_node
@@ -108,12 +108,19 @@ class LinkedList:
             yield current_node.value
             current_node = current_node.next
 
-    def find(self, value):
+    def find(self, value: Any):
         for index, list_value in enumerate(self):
             if list_value == value:
                 return index
 
-    def delete(self, index):
+    def delete(self, index: int):
+        if index is not isinstance(index, int):
+            raise TypeError('index must be int')
+        if index < 0:
+            if self.__len >= abs(index):
+                index = self.__len + index
+            else:
+                index = abs(index)
         current_node = self.__head
         for i in range(self.__len):
             temp_node = current_node.next
@@ -139,7 +146,7 @@ class LinkedList:
                     self.__len -= 1
             current_node = temp_node
 
-    def remove(self, value):
+    def remove(self, value: Any):
         current_node = self.__head
         for index, list_value in enumerate(self):
             temp_node = current_node.next
