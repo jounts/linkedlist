@@ -118,7 +118,7 @@ class LinkedList:
             raise TypeError('index must be int')
         if index < 0:
             if self.__len >= abs(index):
-                index = self.__len + index + 1
+                index = self.__len + index
             else:
                 raise IndexError('index out of range')
         current_node = self.__head

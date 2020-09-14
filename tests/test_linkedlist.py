@@ -89,9 +89,10 @@ class TestLinkedList(unittest.TestCase):
                 continue
             self.l.append(i)
         self.l.insert(-2, 1)
-        print(self.l)
         self.assertEqual(self.l._LinkedList__head.value, 0)
         self.assertEqual(self.l._LinkedList__tail.value, 2)
+        self.l.delete(-1)
+        self.assertEqual(self.l._LinkedList__tail.value, 1)
 
     def test_clear(self):
         pass  # Узнать как протестировать это
