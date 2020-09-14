@@ -149,7 +149,7 @@ class LinkedList:
                     del current_node
                     self.__len -= 1
                     break
-                if current_node.next is not None and current_node.prev is None:
+                elif current_node.next is not None and current_node.prev is None:
                     self.__head = current_node.next
                     del current_node
                     self.__len -= 1
@@ -169,7 +169,7 @@ class LinkedList:
             temp_node = current_node.next
             if current_node.next is not None:
                 current_node.next = None
-            if current_node.prev is not None:
+            elif current_node.prev is not None:
                 current_node.prev = None
             del current_node.value
             del current_node

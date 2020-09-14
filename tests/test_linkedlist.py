@@ -50,10 +50,8 @@ class TestLinkedList(unittest.TestCase):
 
     def test_push(self):
         values = [i for i in range(10)]
-        print(values)
         for value in values:
             self.l.push(value)
-        print(self.l)
         for ind, l_val in enumerate(self.l):
             self.assertEqual(values[len(values) - 1 - ind], l_val)
 
