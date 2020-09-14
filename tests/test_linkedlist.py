@@ -94,6 +94,13 @@ class TestLinkedList(unittest.TestCase):
         self.l.delete(-1)
         self.assertEqual(self.l._LinkedList__tail.value, 1)
 
+    def test_repr(self):
+        values = [i for i in range(5)]
+        val_str = str(values)
+        for value in values:
+            self.l.append(value)
+        self.assertEqual(repr(self.l), val_str)
+
     def test_clear(self):
         pass  # Узнать как протестировать это
 
