@@ -51,9 +51,9 @@ class LinkedList:
             raise TypeError('index must be int')
         if index < 0:
             if self.__len >= abs(index):
-                index = self.__len + index
+                index = self.__len + index + 1
             else:
-                index = abs(index)
+                index = 0
         insert_node = Node(value)
         if not self.__len:
             self.__head = insert_node
@@ -118,9 +118,9 @@ class LinkedList:
             raise TypeError('index must be int')
         if index < 0:
             if self.__len >= abs(index):
-                index = self.__len + index
+                index = self.__len + index + 1
             else:
-                index = abs(index)
+                raise IndexError('index out of range')
         current_node = self.__head
         for i in range(self.__len):
             temp_node = current_node.next
