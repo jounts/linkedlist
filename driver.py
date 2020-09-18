@@ -29,7 +29,12 @@ class CSVDriver(IStructureDriver):
 
     def read(self):
         with open(self.filename, 'r', newline='') as f:
-            return csv.reader(f, delimiter=';', quotechar='"')
+            r_lst = []
+            reader = csv.reader(f, delimiter=';', quotechar='"')
+            for row in reader:
+                for el in row:
+                    r_lst.append(el)
+            return r_lst
 
     def write(self, d):
         with open(self.filename, 'w', newline='') as f:

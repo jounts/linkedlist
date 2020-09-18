@@ -110,6 +110,12 @@ class LinkedList:
             current_node = current_node.next
         current_node.value = value
 
+    def __getitem__(self, item):
+        current_node = self.__head
+        for i in range(item):
+            current_node = current_node.next
+        return current_node.value
+
     def __iter__(self):
         current_node = self.__head
         for _ in range(self.__len):
@@ -198,10 +204,11 @@ class LinkedList:
             ans.append(i)
         return f'{ans}'
 
-    def read(self, filename):
-        pass
+    def read(self):
+        for i in self.__driver.read():
+            self.append(i)
 
-    def write(self, filename):
+    def write(self):
         self.__driver.write([i for i in self])
 
 
@@ -211,4 +218,13 @@ if __name__ == '__main__':
     for i in range(5):
         ll.append(i)
     ll.write()
+    csv_data = dr.read()
+    print(len(csv_data))
+
+    print(type(csv_data))
+    print(csv_data)
+
+    ll2 = LinkedList(driver=dr)
+    ll2.read()
+    # print(ll2[2])
 
