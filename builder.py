@@ -30,7 +30,7 @@ class CSVBuilder(DriverBuilder):
                 break
             elif not filename.endswith('.csv'):
                 filename += '.csv'
-                return JsonDriver(filename)
+                return CSVDriver(filename)
 
 
 class FabricDriverBuilder():
