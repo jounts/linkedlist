@@ -1,4 +1,5 @@
 from typing import Any
+from driver import IStructureDriver, CSVDriver
 
 
 class Node:
@@ -38,7 +39,8 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self):
+    def __init__(self, driver: IStructureDriver = None):
+        self.__driver = driver
         self.__head = None
         self.__tail = None
         self.__len = 0
@@ -196,6 +198,17 @@ class LinkedList:
             ans.append(i)
         return f'{ans}'
 
+    def read(self, filename):
+        pass
+
+    def write(self, filename):
+        self.__driver.write([i for i in self])
+
 
 if __name__ == '__main__':
-    pass
+    dr = CSVDriver('test.csv')
+    ll = LinkedList(driver=dr)
+    for i in range(5):
+        ll.append(i)
+    ll.write()
+
