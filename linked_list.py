@@ -1,5 +1,6 @@
 from typing import Any
-from driver import IStructureDriver, CSVDriver
+from driver import IStructureDriver
+from builder import FabricDriverBuilder
 
 
 class Node:
@@ -39,8 +40,8 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self, driver: IStructureDriver = None):
-        self.__driver = driver
+    def __init__(self):
+        self.__driver = None
         self.__head = None
         self.__tail = None
         self.__len = 0
@@ -205,26 +206,15 @@ class LinkedList:
         return f'{ans}'
 
     def read(self):
+        self.__driver = FabricDriverBuilder.get_driver()
         for i in self.__driver.read():
             self.append(i)
 
     def write(self):
+        self.__driver = FabricDriverBuilder.get_driver()
         self.__driver.write([i for i in self])
 
 
 if __name__ == '__main__':
-    dr = CSVDriver('test.csv')
-    ll = LinkedList(driver=dr)
-    for i in range(5):
-        ll.append(i)
-    ll.write()
-    csv_data = dr.read()
-    print(len(csv_data))
-
-    print(type(csv_data))
-    print(csv_data)
-
-    ll2 = LinkedList(driver=dr)
-    ll2.read()
-    # print(ll2[2])
+    pass
 

@@ -40,3 +40,7 @@ class CSVDriver(IStructureDriver):
         with open(self.filename, 'w', newline='') as f:
             csv_writer = csv.writer(f, delimiter=';', quotechar='"')
             csv_writer.writerow(d)
+
+
+if __name__ == '__main__':
+    pass
