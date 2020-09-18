@@ -102,6 +102,12 @@ class LinkedList:
             self.__head = pushed_node
         self.__len += 1
 
+    def __setitem__(self, key, value):
+        current_node = self.__head
+        for i in range(key):
+            current_node = current_node.next
+        current_node.value = value
+
     def __iter__(self):
         current_node = self.__head
         for _ in range(self.__len):
